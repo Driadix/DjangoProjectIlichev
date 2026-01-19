@@ -1,18 +1,55 @@
 ﻿{% extends "app/layout.html" %}
 
 {% block content %}
+
 <div class="row">
-    <div class="col-md-8">
-        <h2>Регистрация пользователя</h2>
-        <form method="post" class="form-horizontal">
-            {% csrf_token %}
-            <div class="form-group">
-                {{ regform.as_p }}
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Зарегистрировать" class="btn btn-primary" />
-            </div>
-        </form>
+    <div class="col-md-12">
+        <div class="form-retro-container">
+            <h2 style="text-align: center; margin-top: 0;">> НОВЫЙ ПОЛЬЗОВАТЕЛЬ</h2>
+            <hr style="border-color: #004400;">
+
+            <form method="post">
+                {% csrf_token %}
+
+                {% if regform.non_field_errors %}
+                <div class="errorlist">
+                    {% for error in regform.non_field_errors %}
+                    <p>> ОШИБКА: {{ error }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {% for field in regform %}
+                <div class="form-group {% if field.errors %}field-error{% endif %}">
+                    <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
+                    <input type="{{ field.field.widget.input_type|default:'text' }}"
+                           name="{{ field.name }}"
+                           id="{{ field.id_for_label }}"
+                           class="retro-form-control"
+                           {% if field.help_text %}aria-describedby="{{ field.id_for_label }}_help" {% endif %}>
+
+                    {% if field.errors %}
+                    <ul class="errorlist">
+                        {% for error in field.errors %}
+                        <li>> {{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+
+                    {% if field.help_text %}
+                    <span id="{{ field.id_for_label }}_help" class="help-text">
+                        {{ field.help_text|safe }}
+                    </span>
+                    {% endif %}
+                </div>
+                {% endfor %}
+
+                <div class="form-group" style="text-align: center; margin-top: 30px;">
+                    <input type="submit" value="Инициализировать" class="btn btn-primary btn-block" />
+                </div>
+            </form>
+        </div>
     </div>
 </div>
+
 {% endblock %}

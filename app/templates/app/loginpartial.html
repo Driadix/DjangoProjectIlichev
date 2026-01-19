@@ -2,12 +2,13 @@
 <form id="logoutForm" action="{% url 'logout' %}" method="post" class="navbar-right">
     {% csrf_token %}
     <ul class="nav navbar-nav navbar-right">
-        <li><span class="navbar-text">Привет, {{ user.username }}!</span></li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Выйти</a></li>
+        <li><span class="navbar-text">ПРИВЕТ, {{ user.username|upper }}!</span></li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">[ ВЫЙТИ ]</a></li>
     </ul>
 </form>
 {% else %}
 <ul class="nav navbar-nav navbar-right">
+    <li><a href="{% url 'registration' %}">Регистрация</a></li>
     <li><a href="{% url 'login' %}">Вход</a></li>
 </ul>
 {% endif %}

@@ -282,3 +282,77 @@ footer {
         background-color: #444400;
         box-shadow: 0 0 4px rgba(255, 255, 0, 0.3);
     }
+
+/* Контейнер формы */
+.form-retro-container {
+    background-color: #050505;
+    border: 2px solid #00ff00;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto; /* Центрирование */
+}
+
+/* Поля ввода */
+.retro-form-control {
+    background-color: #000000;
+    border: 1px solid #006600;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 0; /* Острые углы */
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+    .retro-form-control:focus {
+        border-color: #00ff00;
+        box-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
+        outline: none;
+    }
+
+/* Лейблы */
+.control-label {
+    color: #00cc00;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Текст помощи (подсказки к паролю) */
+.help-text, .helptext {
+    font-size: 0.8em;
+    color: #008800;
+    margin-bottom: 15px;
+    display: block;
+}
+
+    .helptext ul {
+        padding-left: 20px;
+        margin-top: 5px;
+    }
+
+/* Ошибки валидации */
+.errorlist {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 15px 0;
+    color: #ff4444;
+    font-weight: bold;
+    border-left: 3px solid #ff4444;
+    padding-left: 10px;
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+.field-error input {
+    border-color: #ff4444;
+}
+
+/* Группировка полей */
+.form-group {
+    margin-bottom: 20px;
+}
