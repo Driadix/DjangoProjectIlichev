@@ -1,4 +1,4 @@
-"""
+﻿"""
 Definition of urls for DjangoWebProjectIlichev.
 """
 
@@ -14,13 +14,14 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('about/', views.about, name='about'),
     path('links/', views.links, name='links'),
+    path('registration/', views.registration, name='registration'),
     path('login/',
          LoginView.as_view(
              template_name='app/login.html',
              authentication_form=forms.BootstrapAuthenticationForm,
              extra_context=
              {
-                 'title': 'Log in',
+                 'title': 'Вход',
                  'year': datetime.now().year,
              }
          ),
