@@ -6,7 +6,10 @@
 
     {% if post_1.image and post_1.image.url != '/media/temp.jpg' %}
     <div class="post-image" style="margin-bottom: 20px; text-align: center;">
-        <img src="{{ post_1.image.url }}" alt="{{ post_1.title }}" style="max-width: 100%; border: 1px solid #004400; max-height: 400px;">
+        <img src="{{ post_1.image.url }}"
+             alt="{{ post_1.title }}"
+             style="max-width: 100%; border: 1px solid #004400; max-height: 400px;"
+             onerror="this.style.display='none'">
     </div>
     {% endif %}
 
