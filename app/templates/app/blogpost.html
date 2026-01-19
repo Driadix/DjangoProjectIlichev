@@ -9,7 +9,7 @@
         <img src="{{ post_1.image.url }}"
              alt="{{ post_1.title }}"
              style="max-width: 100%; border: 1px solid #004400; max-height: 400px;"
-             onerror="this.style.display='none'">
+             onerror="this.onerror=null;this.src='/media/temp.jpg';">
     </div>
     {% endif %}
 
