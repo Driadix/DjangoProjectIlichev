@@ -38,6 +38,7 @@ body {
 a {
     color: #44ff44;
     text-decoration: none;
+    transition: all 0.3s ease;
 }
 
     a:hover {
@@ -51,9 +52,10 @@ h1, h2, h3, h4, h5, h6 {
     color: #00ff00;
     text-shadow: 1px 1px 2px #003300;
     font-family: 'Courier New', monospace;
+    margin-bottom: 20px;
 }
 
-/* Главный блок */
+/* Jumbotron (главный блок) */
 .jumbotron {
     background-color: #001100;
     border: 1px solid #00ff00;
@@ -133,7 +135,6 @@ footer {
     background-color: #092e20;
 }
 
-/* Логотип в шапке */
 .navbar-brand img {
     display: inline-block;
     height: 30px;
@@ -188,3 +189,96 @@ footer {
             text-align: center;
             margin-top: 15px;
         }
+
+/* 1. Стилизация Таблиц */
+.retro-table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    border: 2px solid #00ff00;
+    background-color: #050505;
+}
+
+    .retro-table th, .retro-table td {
+        padding: 12px;
+        border: 1px solid #004400;
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    .retro-table th {
+        background-color: #002200;
+        color: #ffffff;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-bottom: 2px solid #00ff00;
+    }
+
+    .retro-table tr:hover {
+        background-color: #001100;
+        cursor: crosshair;
+    }
+
+/* 2. Стилизация Списков */
+.retro-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+    .retro-list li {
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 10px;
+        font-size: 1.1em;
+    }
+
+        .retro-list li::before {
+            content: ">_";
+            position: absolute;
+            left: 0;
+            color: #00ff00;
+            font-weight: bold;
+        }
+
+/* 3. Эффекты для изображений */
+.img-hover-effect {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .img-hover-effect:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+    }
+
+/* 4. Позиционирование */
+.status-badge {
+    display: inline-block;
+    width: 90px;
+    text-align: center;
+    padding: 4px 0;
+    font-size: 0.85em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: #004400;
+    color: #fff;
+    border-radius: 4px;
+    border: 1px solid #00ff00;
+    position: relative;
+    top: 0;
+    box-shadow: 0 0 4px rgba(0, 255, 0, 0.3);
+}
+
+    .status-badge.offline {
+        background-color: #2b0000;
+        border-color: #ff3333;
+        color: #ffcccc;
+        box-shadow: 0 0 4px rgba(255, 0, 0, 0.3);
+    }
+
+    .status-badge.guru {
+        border-color: #ffff00;
+        color: #ffffcc;
+        background-color: #444400;
+        box-shadow: 0 0 4px rgba(255, 255, 0, 0.3);
+    }

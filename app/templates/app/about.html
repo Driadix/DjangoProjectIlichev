@@ -5,8 +5,19 @@
 <h2>{{ title }}.</h2>
 <h3>{{ message }}</h3>
 
-<p>Мы — группа энтузиастов, изучающих веб-фреймворки. Мы верим в чистый код, строгую типизацию и темные темы IDE.</p>
+<div class="row">
+    <div class="col-md-6">
+        <p>Мы — группа энтузиастов, изучающих веб-фреймворки. Мы верим в чистый код, строгую типизацию и темные темы IDE. Наша миссия — сохранить дух старой школы программирования в эпоху современных фреймворков.</p>
 
+        <h4>Правила клуба (Retro-List):</h4>
+        <ul class="retro-list">
+            <li>Никогда не пушить в мастер без ревью.</li>
+            <li>Комментарии в коде обязательны.</li>
+            <li>Соблюдать PEP-8, даже если никто не видит.</li>
+            <li>Кофе — топливо для кода.</li>
+        </ul>
+
+        <p>Вот пример кода нашего типичного участника:</p>
 <pre>
 class Student(Programmer):
     def __init__(self):
@@ -20,5 +31,54 @@ class Student(Programmer):
             self.coffee_level -= 10
             self.knowledge += 1
 </pre>
+    </div>
+
+    <div class="col-md-6">
+        <h4>Уровни доступа (Retro-Table):</h4>
+        <p>Система рангов в нашей лаборатории:</p>
+        <table class="retro-table">
+            <thead>
+                <tr>
+                    <th>Ранг</th>
+                    <th>Описание</th>
+                    <th>Статус</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Новичок (Junior)</td>
+                    <td>Знает, как запустить сервер, но боится миграций.</td>
+                    <td><span class="status-badge">Активен</span></td>
+                </tr>
+                <tr>
+                    <td>Разработчик (Middle)</td>
+                    <td>Пишет свои вьюхи, понимает ORM.</td>
+                    <td><span class="status-badge">Активен</span></td>
+                </tr>
+                <tr>
+                    <td>Архитектор (Senior)</td>
+                    <td>Видит матрицу, пишет на Django с закрытыми глазами.</td>
+                    <td><span class="status-badge">Гуру</span></td>
+                </tr>
+                <tr>
+                    <td>Админ (SysAdmin)</td>
+                    <td>Бог серверов. Не беспокоить.</td>
+                    <td><span class="status-badge" style="background-color: #ff0000; border-color: #ff0000;">Офлайн</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>Наш маскот:</h4>
+        <div style="text-align: center; margin-top: 20px;">
+            <svg width="150" height="150" viewBox="0 0 100 100" class="img-hover-effect" style="border: 2px solid #00ff00; background: #000; border-radius: 50%;">
+                <rect x="25" y="25" width="50" height="50" fill="none" stroke="#00ff00" stroke-width="2" />
+                <circle cx="50" cy="50" r="10" fill="#00ff00" />
+                <line x1="50" y1="50" x2="70" y2="70" stroke="#00ff00" stroke-width="2" />
+                <text x="50" y="90" font-family="Courier" font-size="10" fill="#00ff00" text-anchor="middle">SYSTEM OK</text>
+            </svg>
+            <p><small>Наведите на иконку для эффекта</small></p>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
