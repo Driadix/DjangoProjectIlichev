@@ -15,6 +15,7 @@ class Blog(models.Model):
     description = models.TextField(verbose_name="Краткое содержание")
     content = models.TextField(verbose_name="Полное содержание")
     posted = models.DateTimeField(default=datetime.now, db_index=True, verbose_name="Опубликована")
+    image = models.FileField(default='temp.jpg', verbose_name="Путь к картинке")
 
     def get_absolute_url(self):
         return reverse("blogpost", args=[str(self.id)])
@@ -44,6 +45,5 @@ class Comment(models.Model):
         verbose_name_plural = "Комментарии к статьям блога"
         ordering = ["-date"]
 
-# Регистрация моделей в админке
 admin.site.register(Blog)
 admin.site.register(Comment)

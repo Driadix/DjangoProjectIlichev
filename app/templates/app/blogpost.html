@@ -3,6 +3,13 @@
 {% block content %}
 
 <div class="post-container" style="background-color: #050505; border: 2px solid #00ff00; padding: 30px; margin-top: 20px;">
+
+    {% if post_1.image and post_1.image.url != '/media/temp.jpg' %}
+    <div class="post-image" style="margin-bottom: 20px; text-align: center;">
+        <img src="{{ post_1.image.url }}" alt="{{ post_1.title }}" style="max-width: 100%; border: 1px solid #004400; max-height: 400px;">
+    </div>
+    {% endif %}
+
     <h2 style="margin-top: 0; border-bottom: 1px solid #004400; padding-bottom: 10px;">
         {{ post_1.title }}
     </h2>

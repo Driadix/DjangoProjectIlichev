@@ -1,0 +1,37 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-retro-container" style="max-width: 800px;">
+            <h2 style="text-align: center; margin-top: 0;">> НОВАЯ ЗАПИСЬ В БЛОГ</h2>
+            <hr style="border-color: #004400;">
+
+            <!-- enctype="multipart/form-data" обязателен для загрузки файлов -->
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {% for field in form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.errors %}
+                    <ul class="errorlist">
+                        {% for error in field.errors %}
+                        <li style="color: red;">{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+                {% endfor %}
+
+                <div class="form-group" style="text-align: center; margin-top: 20px;">
+                    <input type="submit" value="Опубликовать в сеть" class="btn btn-primary btn-lg" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

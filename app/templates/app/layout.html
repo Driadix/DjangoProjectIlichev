@@ -30,6 +30,10 @@
                     <li><a href="{% url 'contact' %}">Контакты</a></li>
                     <li><a href="{% url 'links' %}">Полезные ресурсы</a></li>
                     <li><a href="{% url 'blog' %}">Блог</a></li>
+
+                    {% if user.is_superuser %}
+                    <li><a href="{% url 'newpost' %}" style="color: #ffaa00;">[+ Статья]</a></li>
+                    {% endif %}
                 </ul>
                 {% include 'app/loginpartial.html' %}
             </div>

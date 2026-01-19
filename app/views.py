@@ -7,7 +7,7 @@ from datetime import datetime
 from django.shortcuts import render, redirect
 from django.http import HttpRequest
 from django.contrib.auth.forms import UserCreationForm
-from .forms import BootstrapUserCreationForm, CommentForm
+from .forms import BootstrapUserCreationForm, CommentForm, BlogForm # Импорт формы блога
 from django.db import models
 from .models import Blog, Comment
 
@@ -133,5 +133,30 @@ def blogpost(request, parametr):
             'comments': comments,
             'form': form,
             'year':datetime.now().year,
+        }
+    )
+
+def newpost(request):
+    """Renders the newpost page."""
+    assert isinstance(request, HttpRequest)
+    
+    if request.method == "POST":
+        form = BlogForm(request.POST, request.FILES)
+        if form.is_valid():
+            post_f = form.save(commit=False)
+            post_f.posted = datetime.now()
+            post_f.save()
+            
+            return redirect('blog')
+    else:
+        form = BlogForm()
+        
+    return render(
+        request,
+        'app/newpost.html',
+        {
+            'form': form,
+            'title': 'Добавить статью',
+            'year': datetime.now().year,
         }
     )
