@@ -1,4 +1,4 @@
-"""
+﻿"""
 Definition of views.
 """
 
@@ -13,7 +13,7 @@ def home(request):
         request,
         'app/index.html',
         {
-            'title':'Home Page',
+            'title':'Главная',
             'year':datetime.now().year,
         }
     )
@@ -25,8 +25,8 @@ def contact(request):
         request,
         'app/contact.html',
         {
-            'title':'Contact',
-            'message':'Your contact page.',
+            'title':'Контакты',
+            'message':'Связь с администрацией узла.',
             'year':datetime.now().year,
         }
     )
@@ -38,8 +38,21 @@ def about(request):
         request,
         'app/about.html',
         {
-            'title':'About',
-            'message':'Your application description page.',
+            'title':'О нас',
+            'message':'Информация о нашем клубе.',
+            'year':datetime.now().year,
+        }
+    )
+
+def links(request):
+    """Renders the links page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/links.html',
+        {
+            'title':'Полезные ресурсы',
+            'message':'Избранные ссылки сети.',
             'year':datetime.now().year,
         }
     )

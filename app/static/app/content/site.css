@@ -1,42 +1,135 @@
 body {
-    padding-top: 50px;
+    padding-top: 70px;
     padding-bottom: 20px;
+    background-color: #0d0d0d;
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-/* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+/* Навигация */
+.navbar-inverse {
+    background-color: #002200;
+    border-color: #004400;
 }
 
-/* styles for validation helpers */
-.field-validation-error {
-    color: #b94a48;
+    .navbar-inverse .navbar-brand {
+        color: #00ff00;
+        font-weight: bold;
+        font-family: 'Courier New', monospace;
+        text-transform: uppercase;
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #00cc00;
+    }
+
+        .navbar-inverse .navbar-nav > li > a:hover,
+        .navbar-inverse .navbar-nav > li > a:focus {
+            color: #ffffff;
+            background-color: #004400;
+        }
+
+/* Ссылки */
+a {
+    color: #44ff44;
+    text-decoration: none;
 }
 
-.field-validation-valid {
-    display: none;
+    a:hover {
+        color: #ffffff;
+        text-decoration: underline;
+        background-color: #004400;
+    }
+
+/* Заголовки */
+h1, h2, h3, h4, h5, h6 {
+    color: #00ff00;
+    text-shadow: 1px 1px 2px #003300;
+    font-family: 'Courier New', monospace;
 }
 
-input.input-validation-error {
-    border: 1px solid #b94a48;
+/* Главный блок */
+.jumbotron {
+    background-color: #001100;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    box-shadow: 0 0 10px #00ff00;
 }
 
-input[type="checkbox"].input-validation-error {
-    border: 0 none;
+    .jumbotron p {
+        font-size: 16px;
+    }
+
+/* Кнопки */
+.btn-primary {
+    background-color: #004400;
+    border-color: #00ff00;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
 }
 
-.validation-summary-errors {
-    color: #b94a48;
+    .btn-primary:hover {
+        background-color: #00ff00;
+        color: #000000;
+        border-color: #00ff00;
+    }
+
+.btn-default {
+    background-color: #000000;
+    border-color: #00ff00;
+    color: #00ff00;
 }
 
-.validation-summary-valid {
-    display: none;
+/* Footer */
+footer {
+    border-top: 1px solid #004400;
+    padding-top: 10px;
+    margin-top: 20px;
+    color: #008800;
+}
+
+/* Кастомные классы для ретро элементов */
+.terminal-cursor {
+    display: inline-block;
+    width: 10px;
+    height: 18px;
+    background-color: #00ff00;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Стили для изображений логотипов ресурсов */
+.resource-img {
+    background-color: #ffffff;
+    padding: 5px;
+    border: 1px solid #00ff00;
+    border-radius: 4px;
+    max-width: 150px;
+    height: auto;
+}
+
+/* Логотип в шапке */
+.navbar-brand img {
+    display: inline-block;
+    height: 30px;
+    margin-right: 10px;
+    vertical-align: middle;
 }

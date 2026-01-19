@@ -1,0 +1,45 @@
+﻿{% extends "app/layout.html" %}
+{% load static %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="thumbnail" style="background-color: #001100; border: 1px solid #00ff00;">
+            <!-- В реальном проекте здесь были бы реальные файлы картинок. Используем SVG плейсхолдеры или внешние ссылки -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo" class="resource-img" style="height: 100px;">
+            <div class="caption">
+                <h3>Python.org</h3>
+                <p>Официальный сайт языка программирования Python. Документация, загрузки и новости сообщества.</p>
+                <p><a href="https://www.python.org/" class="btn btn-primary" role="button">Перейти &raquo;</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="thumbnail" style="background-color: #001100; border: 1px solid #00ff00;">
+            <img src="https://static.djangoproject.com/img/logos/django-logo-negative.svg" alt="Django Logo" class="resource-img" style="height: 100px; background-color: #092e20;">
+            <div class="caption">
+                <h3>Django Project</h3>
+                <p>Дом нашего любимого фреймворка. Всё о Django: от туториалов до исходного кода.</p>
+                <p><a href="https://www.djangoproject.com/" class="btn btn-primary" role="button">Перейти &raquo;</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="thumbnail" style="background-color: #001100; border: 1px solid #00ff00;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub Logo" class="resource-img" style="height: 100px;">
+            <div class="caption">
+                <h3>GitHub</h3>
+                <p>Крупнейший веб-сервис для хостинга IT-проектов и их совместной разработки.</p>
+                <p><a href="https://github.com/" class="btn btn-primary" role="button">Перейти &raquo;</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
