@@ -1,0 +1,25 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="post-container" style="background-color: #050505; border: 2px solid #00ff00; padding: 30px; margin-top: 20px;">
+    <h2 style="margin-top: 0; border-bottom: 1px solid #004400; padding-bottom: 10px;">
+        {{ post_1.title }}
+    </h2>
+
+    <p style="color: #008800; margin-bottom: 30px;">
+        <span class="glyphicon glyphicon-time"></span> {{ post_1.posted|date:"d E Y, H:i" }}
+    </p>
+
+    <div class="post-content" style="font-size: 1.1em; line-height: 1.6;">
+        {{ post_1.content|linebreaksbr }}
+    </div>
+
+    <hr style="border-color: #004400; margin-top: 40px;" />
+
+    <a href="{% url 'blog' %}" class="btn btn-default">
+        &laquo; ВЕРНУТЬСЯ К СПИСКУ
+    </a>
+</div>
+
+{% endblock %}

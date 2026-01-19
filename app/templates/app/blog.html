@@ -1,0 +1,30 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}</h2>
+<p class="lead">Хроники нашего сообщества.</p>
+<hr style="border-color: #004400;" />
+
+<div class="blog-posts">
+    {% for post in posts %}
+    <div class="jumbotron" style="padding: 20px; border: 1px dashed #00ff00; background-color: #050505;">
+        <h3 style="margin-top: 0;">
+            <span style="color: #00aa00;">></span> {{ post.title }}
+        </h3>
+        <p style="font-size: 0.9em; color: #008800;">
+            Опубликовано: {{ post.posted|date:"d E Y, H:i" }}
+        </p>
+
+        <p class="post-description" style="margin: 15px 0;">
+            {{ post.description }}
+        </p>
+
+        <a href="{% url 'blogpost' parametr=post.id %}" class="btn btn-primary btn-sm">
+            ЧИТАТЬ ПОЛНОСТЬЮ &raquo;
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

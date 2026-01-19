@@ -1,9 +1,10 @@
-﻿"""
+﻿# -*- coding: utf-8 -*-
+"""
 Definition of forms.
 """
 
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.utils.translation import gettext_lazy as _
 
 class BootstrapAuthenticationForm(AuthenticationForm):
@@ -18,3 +19,14 @@ class BootstrapAuthenticationForm(AuthenticationForm):
                                    'class': 'form-control',
                                    'placeholder': 'Пароль'
                                }))
+
+class BootstrapUserCreationForm(UserCreationForm):
+    """UserCreationForm which uses boostrap CSS."""
+    class Meta:
+        model = UserCreationForm.Meta.model
+        fields = UserCreationForm.Meta.fields
+
+    def __init__(self, *args, **kwargs):
+        super(BootstrapUserCreationForm, self).__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'form-control'

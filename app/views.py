@@ -7,6 +7,9 @@ from datetime import datetime
 from django.shortcuts import render, redirect
 from django.http import HttpRequest
 from django.contrib.auth.forms import UserCreationForm
+from .forms import BootstrapUserCreationForm
+from django.db import models
+from .models import Blog
 
 def home(request):
     """Renders the home page."""
@@ -62,8 +65,9 @@ def links(request):
 def registration(request):
     """Renders the registration page."""
     assert isinstance(request, HttpRequest)
+    
     if request.method == "POST":
-        regform = UserCreationForm(request.POST)
+        regform = BootstrapUserCreationForm(request.POST)
         if regform.is_valid():
             reg_f = regform.save(commit=False)
             reg_f.is_staff = False
@@ -71,12 +75,12 @@ def registration(request):
             reg_f.is_superuser = False
             reg_f.date_joined = datetime.now()
             reg_f.last_login = datetime.now()
-
+            
             reg_f.save()
-
+            
             return redirect('home')
     else:
-        regform = UserCreationForm()
+        regform = BootstrapUserCreationForm()
 
     return render(
         request,
@@ -84,5 +88,34 @@ def registration(request):
         {
             'regform': regform,
             'year': datetime.now().year,
+        }
+    )
+
+def blog(request):
+    """Renders the blog page."""
+    assert isinstance(request, HttpRequest)
+    posts = Blog.objects.order_by('-posted')
+    
+    return render(
+        request,
+        'app/blog.html',
+        {
+            'title':'Блог',
+            'posts': posts,
+            'year':datetime.now().year,
+        }
+    )
+
+def blogpost(request, parametr):
+    """Renders the blogpost page."""
+    assert isinstance(request, HttpRequest)
+    post_1 = Blog.objects.get(id=parametr)
+    
+    return render(
+        request,
+        'app/blogpost.html',
+        {
+            'post_1': post_1,
+            'year':datetime.now().year,
         }
     )

@@ -59,6 +59,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\static\app\content\logo.svg" />
+    <Content Include="app\templates\app\blog.html" />
+    <Content Include="app\templates\app\blogpost.html" />
     <Content Include="app\templates\app\links.html" />
     <Content Include="app\templates\app\registration.html" />
     <Content Include="requirements.txt" />
