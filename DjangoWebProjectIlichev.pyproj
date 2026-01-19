@@ -35,6 +35,7 @@
   <ItemGroup>
     <Compile Include="app\forms.py" />
     <Compile Include="app\migrations\0002_populate_blog.py" />
+    <Compile Include="app\migrations\0003_populate_comments.py" />
     <Compile Include="app\models.py" />
     <Compile Include="app\tests.py" />
     <Compile Include="app\views.py" />
@@ -65,7 +66,6 @@
     <Content Include="app\templates\app\links.html" />
     <Content Include="app\templates\app\registration.html" />
     <Content Include="requirements.txt" />
-    <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />
     <Content Include="app\static\app\content\bootstrap.min.css" />
     <Content Include="app\static\app\content\site.css" />

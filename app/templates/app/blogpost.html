@@ -17,6 +17,42 @@
 
     <hr style="border-color: #004400; margin-top: 40px;" />
 
+    <h3>> Комментарии ({{ comments.count }})</h3>
+
+    {% if user.is_authenticated %}
+    <div class="comment-form-container" style="background-color: #001100; padding: 15px; border: 1px dashed #008800; margin-bottom: 20px;">
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_text" class="control-label" style="color: #00ff00;">Добавить комментарий:</label>
+                {{ form.text }}
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm">Отправить сообщение</button>
+        </form>
+    </div>
+    {% else %}
+    <div class="alert alert-info" style="background-color: #001100; border-color: #004400; color: #00cc00;">
+        <a href="{% url 'login' %}?next={{request.path}}" style="text-decoration: underline;">Авторизуйтесь</a>, чтобы оставить комментарий.
+    </div>
+    {% endif %}
+
+    <div class="comments-list">
+        {% for comment in comments %}
+        <div class="comment-box" style="margin-bottom: 15px; border-left: 3px solid #00ff00; padding-left: 15px;">
+            <p style="margin-bottom: 5px; font-size: 0.9em; color: #006600;">
+                <strong style="color: #00aa00;">{{ comment.author.username }}</strong>
+                <span style="float: right;">{{ comment.date|date:"d.m.Y H:i" }}</span>
+            </p>
+            <div style="background-color: #0a0a0a; padding: 10px; border: 1px solid #003300;">
+                {{ comment.text|linebreaksbr }}
+            </div>
+        </div>
+        {% empty %}
+        <p style="color: #666;">Комментариев пока нет. Будьте первым!</p>
+        {% endfor %}
+    </div>
+
+    <hr />
     <a href="{% url 'blog' %}" class="btn btn-default">
         &laquo; ВЕРНУТЬСЯ К СПИСКУ
     </a>
