@@ -9,6 +9,7 @@
 <table class="retro-table" style="width: 100%;">
     <thead>
         <tr>
+            <th style="width: 80px;">Вид</th>
             <th>Товар</th>
             <th>Цена</th>
             <th>Кол-во</th>
@@ -19,8 +20,15 @@
     <tbody>
         {% for item in items %}
         <tr>
+            <td>
+                {% if item.product.image and item.product.image.url != '/media/temp.jpg' %}
+                <img src="{{ item.product.image.url }}" alt="img" style="width: 50px; height: 50px; object-fit: cover; border: 1px solid #004400;" onerror="this.style.display='none';">
+                {% else %}
+                <span style="color: #004400;">[N/A]</span>
+                {% endif %}
+            </td>
             <td><a href="{% url 'product_detail' pk=item.product.id %}">{{ item.product.name }}</a></td>
-            <td>{{ item.price }} &#8381;</td>
+            <td style="white-space: nowrap;">{{ item.price }} &#8381;</td>
             <td>
                 <form method="post" action="{% url 'cart_update' item_id=item.id %}" style="display: inline;">
                     {% csrf_token %}
@@ -29,7 +37,7 @@
                     <button type="submit" name="action" value="increase" class="btn btn-default btn-sm">+</button>
                 </form>
             </td>
-            <td>{{ item.subtotal }} &#8381;</td>
+            <td style="white-space: nowrap;">{{ item.subtotal }} &#8381;</td>
             <td>
                 <form method="post" action="{% url 'cart_update' item_id=item.id %}" style="display: inline;">
                     {% csrf_token %}
@@ -41,8 +49,8 @@
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="3" style="text-align: right;"><strong>ИТОГО:</strong></td>
-            <td><strong>{{ total }} &#8381;</strong></td>
+            <td colspan="4" style="text-align: right;"><strong>ИТОГО:</strong></td>
+            <td style="white-space: nowrap;"><strong>{{ total }} &#8381;</strong></td>
             <td></td>
         </tr>
     </tfoot>

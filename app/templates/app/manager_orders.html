@@ -11,6 +11,7 @@
         <tr>
             <th>Заказ #</th>
             <th>Клиент</th>
+            <th>Состав</th>
             <th>Дата</th>
             <th>Статус</th>
             <th>Сумма</th>
@@ -22,6 +23,13 @@
         <tr>
             <td>{{ order.id }}</td>
             <td>{{ order.client.username }}</td>
+            <td>
+                <ul class="retro-list" style="font-size: 0.85em; padding-left: 0; margin-bottom: 0;">
+                    {% for item in order.items.all %}
+                    <li>{{ item.product.name }} (x{{ item.quantity }})</li>
+                    {% endfor %}
+                </ul>
+            </td>
             <td>{{ order.created_at|date:"d.m.Y H:i" }}</td>
             <td>
                 {% if order.status == 'pending' %}
@@ -36,12 +44,13 @@
                 {{ order.get_status_display }}
                 {% endif %}
             </td>
-            <td>{{ order.total }} &#8381;</td>
+            <td style="white-space: nowrap;">{{ order.total }} &#8381;</td>
             <td>
                 {% if order.status == 'pending' %}
                 <form method="post" action="{% url 'manager_update_order' order_id=order.id %}" style="display: inline;">
                     {% csrf_token %}
-                    <button type="submit" name="status" value="processing" class="btn btn-primary btn-sm">В обработку</button>
+                    <button type="submit" name="status" value="processing" class="btn btn-primary btn-sm" style="margin-bottom: 5px;">В обработку</button>
+                    <button type="submit" name="status" value="canceled" class="btn btn-default btn-sm" style="color: #ff4444;">Отменить</button>
                 </form>
                 {% elif order.status == 'processing' %}
                 <form method="post" action="{% url 'manager_update_order' order_id=order.id %}" style="display: inline;">

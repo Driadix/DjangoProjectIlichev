@@ -10,6 +10,7 @@
     <thead>
         <tr>
             <th>Заказ #</th>
+            <th>Состав</th>
             <th>Дата</th>
             <th>Статус</th>
             <th>Сумма</th>
@@ -20,6 +21,13 @@
         {% for order in orders %}
         <tr>
             <td>{{ order.id }}</td>
+            <td>
+                <ul class="retro-list" style="font-size: 0.85em; padding-left: 0; margin-bottom: 0;">
+                    {% for item in order.items.all %}
+                    <li>{{ item.product.name }} (x{{ item.quantity }})</li>
+                    {% endfor %}
+                </ul>
+            </td>
             <td>{{ order.created_at|date:"d.m.Y H:i" }}</td>
             <td>
                 {% if order.status == 'pending' %}
@@ -34,7 +42,7 @@
                 {{ order.get_status_display }}
                 {% endif %}
             </td>
-            <td>{{ order.total }} &#8381;</td>
+            <td style="white-space: nowrap;">{{ order.total }} &#8381;</td>
             <td>
                 {% if order.status == 'pending' %}
                 <form method="post" action="{% url 'cancel_order' order_id=order.id %}" style="display: inline;">

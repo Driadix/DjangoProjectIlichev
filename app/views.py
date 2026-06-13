@@ -282,7 +282,7 @@ def checkout(request):
 @user_passes_test(is_client)
 def my_orders(request):
     assert isinstance(request, HttpRequest)
-    orders = Order.objects.filter(client=request.user).exclude(status='cart').select_related('client')
+    orders = Order.objects.filter(client=request.user).exclude(status='cart').select_related('client').prefetch_related('items__product')
     return render(
         request,
         'app/my_orders.html',
@@ -308,7 +308,7 @@ def cancel_order(request, order_id):
 @user_passes_test(is_manager)
 def manager_orders(request):
     assert isinstance(request, HttpRequest)
-    orders = Order.objects.exclude(status='cart').select_related('client')
+    orders = Order.objects.exclude(status='cart').select_related('client').prefetch_related('items__product')
     return render(
         request,
         'app/manager_orders.html',
