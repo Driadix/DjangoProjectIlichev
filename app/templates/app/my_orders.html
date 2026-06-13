@@ -1,0 +1,54 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>> {{ title }}</h2>
+<hr style="border-color: #004400;" />
+
+{% if orders %}
+<table class="retro-table" style="width: 100%;">
+    <thead>
+        <tr>
+            <th>Заказ #</th>
+            <th>Дата</th>
+            <th>Статус</th>
+            <th>Сумма</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.created_at|date:"d.m.Y H:i" }}</td>
+            <td>
+                {% if order.status == 'pending' %}
+                <span style="color: #ffaa00;">{{ order.get_status_display }}</span>
+                {% elif order.status == 'processing' %}
+                <span style="color: #00aaff;">{{ order.get_status_display }}</span>
+                {% elif order.status == 'completed' %}
+                <span style="color: #00ff00;">{{ order.get_status_display }}</span>
+                {% elif order.status == 'canceled' %}
+                <span style="color: #ff4444;">{{ order.get_status_display }}</span>
+                {% else %}
+                {{ order.get_status_display }}
+                {% endif %}
+            </td>
+            <td>{{ order.total }} &#8381;</td>
+            <td>
+                {% if order.status == 'pending' %}
+                <form method="post" action="{% url 'cancel_order' order_id=order.id %}" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-default btn-sm" style="color: #ff4444;">Отменить</button>
+                </form>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p style="color: #666;">У вас пока нет заказов. <a href="{% url 'catalog' %}">Перейти в каталог</a>.</p>
+{% endif %}
+
+{% endblock %}

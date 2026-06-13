@@ -1,0 +1,59 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>> {{ title }}</h2>
+<hr style="border-color: #004400;" />
+
+{% if items %}
+<table class="retro-table" style="width: 100%;">
+    <thead>
+        <tr>
+            <th>Товар</th>
+            <th>Цена</th>
+            <th>Кол-во</th>
+            <th>Сумма</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td><a href="{% url 'product_detail' pk=item.product.id %}">{{ item.product.name }}</a></td>
+            <td>{{ item.price }} &#8381;</td>
+            <td>
+                <form method="post" action="{% url 'cart_update' item_id=item.id %}" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" name="action" value="decrease" class="btn btn-default btn-sm">-</button>
+                    <span style="margin: 0 8px;">{{ item.quantity }}</span>
+                    <button type="submit" name="action" value="increase" class="btn btn-default btn-sm">+</button>
+                </form>
+            </td>
+            <td>{{ item.subtotal }} &#8381;</td>
+            <td>
+                <form method="post" action="{% url 'cart_update' item_id=item.id %}" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" name="action" value="remove" class="btn btn-default btn-sm" style="color: #ff4444;">X</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" style="text-align: right;"><strong>ИТОГО:</strong></td>
+            <td><strong>{{ total }} &#8381;</strong></td>
+            <td></td>
+        </tr>
+    </tfoot>
+</table>
+
+<div style="text-align: right; margin-top: 20px;">
+    <a href="{% url 'checkout' %}" class="btn btn-primary btn-lg">Оформить заказ &raquo;</a>
+</div>
+
+{% else %}
+<p style="color: #666;">Корзина пуста. <a href="{% url 'catalog' %}">Перейти в каталог</a>.</p>
+{% endif %}
+
+{% endblock %}

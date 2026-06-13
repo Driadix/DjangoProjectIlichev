@@ -35,7 +35,22 @@
                     {% if user.is_superuser %}
                     <li><a href="{% url 'newpost' %}" style="color: #ffaa00;">[+ Новость]</a></li>
                     {% endif %}
+
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'cart' %}">Корзина</a></li>
+                    <li><a href="{% url 'my_orders' %}">Мои заказы</a></li>
+                    {% endif %}
                 </ul>
+
+                {% if user.is_authenticated %}
+                <ul class="nav navbar-nav">
+                    {% for g in user.groups.all %}
+                    {% if g.name == 'Manager' %}
+                    <li><a href="{% url 'manager_orders' %}" style="color: #ffaa00;">[Заказы]</a></li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                {% endif %}
                 {% include 'app/loginpartial.html' %}
             </div>
         </div>
