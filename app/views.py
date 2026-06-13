@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpRequest
 from django.contrib.auth.models import Group
 from .forms import BootstrapUserCreationForm, CommentForm, NewsForm
-from .models import News, Comment
+from .models import News, Comment, Category, Product
 
 
 def home(request):
@@ -150,6 +150,50 @@ def newpost(request):
         {
             'form': form,
             'title': 'Добавить новость',
+            'year': datetime.now().year,
+        }
+    )
+
+
+def catalog(request):
+    assert isinstance(request, HttpRequest)
+    categories = Category.objects.all()
+    return render(
+        request,
+        'app/catalog.html',
+        {
+            'title': 'Каталог',
+            'categories': categories,
+            'year': datetime.now().year,
+        }
+    )
+
+
+def category_detail(request, slug):
+    assert isinstance(request, HttpRequest)
+    cat = get_object_or_404(Category, slug=slug)
+    products = cat.products.all()
+    return render(
+        request,
+        'app/category.html',
+        {
+            'title': cat.name,
+            'category': cat,
+            'products': products,
+            'year': datetime.now().year,
+        }
+    )
+
+
+def product_detail(request, pk):
+    assert isinstance(request, HttpRequest)
+    product = get_object_or_404(Product, pk=pk)
+    return render(
+        request,
+        'app/product.html',
+        {
+            'title': product.name,
+            'product': product,
             'year': datetime.now().year,
         }
     )

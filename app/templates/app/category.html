@@ -1,0 +1,41 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>> {{ category.name }}</h2>
+<p class="lead">{{ category.description }}</p>
+<hr style="border-color: #004400;" />
+
+<table class="retro-table" style="width: 100%;">
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Цена</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+            <td><a href="{% url 'product_detail' pk=product.id %}">{{ product.name }}</a></td>
+            <td>{{ product.description|truncatewords:15 }}</td>
+            <td style="white-space: nowrap;">{{ product.price }} &#8381;</td>
+            <td>
+                <a href="{% url 'product_detail' pk=product.id %}" class="btn btn-primary btn-sm">Подробнее</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">В этой категории пока нет товаров.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<hr />
+<a href="{% url 'catalog' %}" class="btn btn-default">
+    &laquo; Все категории
+</a>
+
+{% endblock %}

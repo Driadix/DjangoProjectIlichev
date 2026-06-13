@@ -1,0 +1,28 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>> {{ title }}</h2>
+<p class="lead">Выберите категорию для просмотра.</p>
+<hr style="border-color: #004400;" />
+
+<div class="row">
+    {% for cat in categories %}
+    <div class="col-md-4">
+        <div class="jumbotron" style="padding: 20px; border: 1px dashed #00ff00; background-color: #050505;">
+            <h3 style="margin-top: 0;">
+                <span style="color: #00aa00;">></span> {{ cat.name }}
+            </h3>
+            <p style="color: #008800; font-size: 0.9em;">
+                {{ cat.products.count }} товаров
+            </p>
+            <p>{{ cat.description }}</p>
+            <a href="{% url 'category_detail' slug=cat.slug %}" class="btn btn-primary btn-sm">
+                Открыть каталог &raquo;
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

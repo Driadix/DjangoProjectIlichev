@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User, Group
 
 from .models import News
+from .models import Category, Product
 
 
 class ViewTest(TestCase):
@@ -93,3 +94,33 @@ class RolesTest(TestCase):
         self.assertTrue(user.groups.filter(name='Client').exists())
         self.assertFalse(user.is_staff)
         self.assertFalse(user.is_superuser)
+
+
+class CatalogViewTest(TestCase):
+
+    def setUp(self):
+        self.cat = Category.objects.create(name='Тест', slug='test', description='Описание')
+        self.product = Product.objects.create(
+            category=self.cat, name='Товар', description='Описание товара', price='100.00'
+        )
+
+    def test_catalog_page(self):
+        response = self.client.get('/catalog/')
+        self.assertContains(response, 'Каталог', status_code=200)
+
+    def test_category_detail(self):
+        response = self.client.get(f'/catalog/{self.cat.slug}/')
+        self.assertContains(response, self.cat.name, status_code=200)
+
+    def test_category_404(self):
+        response = self.client.get('/catalog/nonexistent/')
+        self.assertEqual(response.status_code, 404)
+
+    def test_product_detail(self):
+        response = self.client.get(f'/product/{self.product.id}/')
+        self.assertContains(response, 'Товар', status_code=200)
+        self.assertContains(response, '100')
+
+    def test_product_404(self):
+        response = self.client.get('/product/99999/')
+        self.assertEqual(response.status_code, 404)

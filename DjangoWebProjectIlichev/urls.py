@@ -22,6 +22,9 @@ urlpatterns = [
     path('news/', views.news, name='news'),
     path('news/<int:parametr>/', views.newspost, name='newspost'),
     path('newpost/', views.newpost, name='newpost'),
+    path('catalog/', views.catalog, name='catalog'),
+    path('catalog/<slug:slug>/', views.category_detail, name='category_detail'),
+    path('product/<int:pk>/', views.product_detail, name='product_detail'),
     path('login/',
          LoginView.as_view(
              template_name='app/login.html',
