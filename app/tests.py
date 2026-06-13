@@ -234,7 +234,7 @@ class ManagerOrdersTest(TestCase):
     def test_manager_page_requires_manager_role(self):
         self.client.login(username='cli', password='testpass123')
         response = self.client.get('/manager/orders/')
-        self.assertRedirects(response, '/')
+        self.assertRedirects(response, '/login/?next=/manager/orders/')
 
     def test_manager_page_accessible(self):
         self.client.login(username='mgr', password='testpass123')

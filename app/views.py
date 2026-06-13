@@ -2,7 +2,15 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpRequest
 from django.contrib.auth.models import Group
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
+
+
+def is_client(user):
+    return user.groups.filter(name='Client').exists()
+
+def is_manager(user):
+    return user.groups.filter(name='Manager').exists()
+
 from .forms import BootstrapUserCreationForm, CommentForm, NewsForm
 from .models import News, Comment, Category, Product, Order, OrderItem
 
@@ -206,6 +214,7 @@ def _get_or_create_cart(user):
 
 
 @login_required
+@user_passes_test(is_client)
 def add_to_cart(request, pk):
     product = get_object_or_404(Product, pk=pk)
     cart = _get_or_create_cart(request.user)
@@ -220,6 +229,7 @@ def add_to_cart(request, pk):
 
 
 @login_required
+@user_passes_test(is_client)
 def cart_detail(request):
     assert isinstance(request, HttpRequest)
     cart = Order.objects.filter(client=request.user, status='cart').first()
@@ -239,6 +249,7 @@ def cart_detail(request):
 
 
 @login_required
+@user_passes_test(is_client)
 def cart_update(request, item_id):
     item = get_object_or_404(OrderItem, id=item_id, order__client=request.user, order__status='cart')
     if request.method == "POST":
@@ -258,6 +269,7 @@ def cart_update(request, item_id):
 
 
 @login_required
+@user_passes_test(is_client)
 def checkout(request):
     cart = Order.objects.filter(client=request.user, status='cart').first()
     if cart and cart.items.exists():
@@ -267,6 +279,7 @@ def checkout(request):
 
 
 @login_required
+@user_passes_test(is_client)
 def my_orders(request):
     assert isinstance(request, HttpRequest)
     orders = Order.objects.filter(client=request.user).exclude(status='cart').select_related('client')
@@ -282,6 +295,7 @@ def my_orders(request):
 
 
 @login_required
+@user_passes_test(is_client)
 def cancel_order(request, order_id):
     order = get_object_or_404(Order, id=order_id, client=request.user)
     if order.status == 'pending':
@@ -291,10 +305,9 @@ def cancel_order(request, order_id):
 
 
 @login_required
+@user_passes_test(is_manager)
 def manager_orders(request):
     assert isinstance(request, HttpRequest)
-    if not request.user.groups.filter(name='Manager').exists():
-        return redirect('home')
     orders = Order.objects.exclude(status='cart').select_related('client')
     return render(
         request,
@@ -308,9 +321,8 @@ def manager_orders(request):
 
 
 @login_required
+@user_passes_test(is_manager)
 def manager_update_order(request, order_id):
-    if not request.user.groups.filter(name='Manager').exists():
-        return redirect('home')
     order = get_object_or_404(Order, id=order_id)
     if request.method == "POST":
         new_status = request.POST.get('status')
