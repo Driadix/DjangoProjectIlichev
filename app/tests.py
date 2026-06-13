@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django.urls import reverse
+from django.contrib.auth.models import User, Group
 
 from .models import News
 
@@ -74,3 +75,21 @@ class NewsPostViewTest(TestCase):
     def test_newspost_404(self):
         response = self.client.get('/news/99999/')
         self.assertEqual(response.status_code, 404)
+
+
+class RolesTest(TestCase):
+
+    def test_groups_exist(self):
+        self.assertTrue(Group.objects.filter(name='Client').exists())
+        self.assertTrue(Group.objects.filter(name='Manager').exists())
+
+    def test_registration_assigns_client_group(self):
+        self.client.post('/registration/', {
+            'username': 'testuser',
+            'password1': 'Str0ngP@ss!',
+            'password2': 'Str0ngP@ss!',
+        })
+        user = User.objects.get(username='testuser')
+        self.assertTrue(user.groups.filter(name='Client').exists())
+        self.assertFalse(user.is_staff)
+        self.assertFalse(user.is_superuser)

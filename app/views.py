@@ -1,6 +1,7 @@
 ﻿from datetime import datetime
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpRequest
+from django.contrib.auth.models import Group
 from .forms import BootstrapUserCreationForm, CommentForm, NewsForm
 from .models import News, Comment
 
@@ -71,6 +72,8 @@ def registration(request):
             reg_f.date_joined = datetime.now()
             reg_f.last_login = datetime.now()
             reg_f.save()
+            client_group = Group.objects.get(name='Client')
+            reg_f.groups.add(client_group)
             return redirect('home')
     else:
         regform = BootstrapUserCreationForm()
