@@ -19,8 +19,8 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('links/', views.links, name='links'),
     path('registration/', views.registration, name='registration'),
-    path('blog/', views.blog, name='blog'),
-    path('blogpost/<int:parametr>/', views.blogpost, name='blogpost'),
+    path('news/', views.news, name='news'),
+    path('news/<int:parametr>/', views.newspost, name='newspost'),
     path('newpost/', views.newpost, name='newpost'),
     path('login/',
          LoginView.as_view(

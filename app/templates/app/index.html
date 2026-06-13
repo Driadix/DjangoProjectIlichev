@@ -33,4 +33,27 @@
     </div>
 </div>
 
+{% if latest_news %}
+<hr style="border-color: #004400;" />
+<h2>> Последние новости</h2>
+<div class="row">
+    {% for post in latest_news %}
+    <div class="col-md-4">
+        <div class="jumbotron" style="padding: 15px; border: 1px dashed #00ff00; background-color: #050505;">
+            <h4 style="margin-top: 0;">
+                <span style="color: #00aa00;">></span> {{ post.title }}
+            </h4>
+            <p style="font-size: 0.85em; color: #008800;">
+                {{ post.posted|date:"d E Y" }}
+            </p>
+            <p style="font-size: 0.9em;">{{ post.description|truncatewords:20 }}</p>
+            <a href="{% url 'newspost' parametr=post.id %}" class="btn btn-primary btn-sm">
+                Подробнее &raquo;
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
 {% endblock %}

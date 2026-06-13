@@ -1,15 +1,10 @@
-﻿# -*- coding: utf-8 -*-
-"""
-Definition of forms.
-"""
-
-from django import forms
+﻿from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.utils.translation import gettext_lazy as _
-from .models import Comment, Blog
+from .models import Comment, News
+
 
 class BootstrapAuthenticationForm(AuthenticationForm):
-    """Authentication form which uses boostrap CSS."""
     username = forms.CharField(max_length=254,
                                widget=forms.TextInput({
                                    'class': 'form-control',
@@ -21,16 +16,17 @@ class BootstrapAuthenticationForm(AuthenticationForm):
                                    'placeholder': 'Пароль'
                                }))
 
+
 class BootstrapUserCreationForm(UserCreationForm):
-    """UserCreationForm which uses boostrap CSS."""
     class Meta:
         model = UserCreationForm.Meta.model
         fields = UserCreationForm.Meta.fields
 
     def __init__(self, *args, **kwargs):
-        super(BootstrapUserCreationForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].widget.attrs['class'] = 'form-control'
+
 
 class CommentForm(forms.ModelForm):
     class Meta:
@@ -41,9 +37,10 @@ class CommentForm(forms.ModelForm):
             'text': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': 'Введите ваш комментарий...'})
         }
 
-class BlogForm(forms.ModelForm):
+
+class NewsForm(forms.ModelForm):
     class Meta:
-        model = Blog
+        model = News
         fields = ('title', 'description', 'content', 'image')
         labels = {
             'title': "Заголовок",
@@ -52,8 +49,8 @@ class BlogForm(forms.ModelForm):
             'image': "Изображение"
         }
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите заголовок статьи'}),
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите заголовок'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': 'Краткое описание'}),
-            'content': forms.Textarea(attrs={'class': 'form-control', 'rows': 10, 'placeholder': 'Текст статьи'}),
+            'content': forms.Textarea(attrs={'class': 'form-control', 'rows': 10, 'placeholder': 'Текст новости'}),
             'image': forms.FileInput(attrs={'class': 'form-control'})
         }
