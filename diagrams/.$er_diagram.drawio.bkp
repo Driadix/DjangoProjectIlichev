@@ -1,0 +1,78 @@
+<mxfile>
+  <diagram name="ER Diagram">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Таблица User -->
+        <mxCell id="User" value="&lt;b&gt;User&lt;/b&gt;&lt;hr&gt;PK&amp;nbsp;&amp;nbsp;id&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;username&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;password&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;email&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;is_staff&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;is_superuser" style="shape=rect;html=1;whiteSpace=wrap;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="160" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- Таблица News -->
+        <mxCell id="News" value="&lt;b&gt;News (Posts)&lt;/b&gt;&lt;hr&gt;PK&amp;nbsp;&amp;nbsp;id&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;title&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;description&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;content&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;posted&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;image" style="shape=rect;html=1;whiteSpace=wrap;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="460" y="60" width="160" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- Таблица Comment -->
+        <mxCell id="Comment" value="&lt;b&gt;Comment&lt;/b&gt;&lt;hr&gt;PK&amp;nbsp;&amp;nbsp;id&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;text&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;date&lt;br&gt;FK&amp;nbsp;&amp;nbsp;author_id&lt;br&gt;FK&amp;nbsp;&amp;nbsp;post_id" style="shape=rect;html=1;whiteSpace=wrap;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="260" y="60" width="160" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Таблица Order -->
+        <mxCell id="Order" value="&lt;b&gt;Order&lt;/b&gt;&lt;hr&gt;PK&amp;nbsp;&amp;nbsp;id&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;status&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;created_at&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;updated_at&lt;br&gt;FK&amp;nbsp;&amp;nbsp;client_id" style="shape=rect;html=1;whiteSpace=wrap;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="60" y="300" width="160" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Таблица OrderItem -->
+        <mxCell id="OrderItem" value="&lt;b&gt;OrderItem&lt;/b&gt;&lt;hr&gt;PK&amp;nbsp;&amp;nbsp;id&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;quantity&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;price&lt;br&gt;FK&amp;nbsp;&amp;nbsp;order_id&lt;br&gt;FK&amp;nbsp;&amp;nbsp;product_id" style="shape=rect;html=1;whiteSpace=wrap;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="260" y="300" width="160" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Таблица Product -->
+        <mxCell id="Product" value="&lt;b&gt;Product&lt;/b&gt;&lt;hr&gt;PK&amp;nbsp;&amp;nbsp;id&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;name&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;description&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;price&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;image&lt;br&gt;FK&amp;nbsp;&amp;nbsp;category_id" style="shape=rect;html=1;whiteSpace=wrap;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="460" y="300" width="160" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- Таблица Category -->
+        <mxCell id="Category" value="&lt;b&gt;Category&lt;/b&gt;&lt;hr&gt;PK&amp;nbsp;&amp;nbsp;id&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;name&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;slug&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;description" style="shape=rect;html=1;whiteSpace=wrap;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="660" y="300" width="160" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Связи (Стрелки) -->
+        
+        <!-- User -> Comment (1:N) -->
+        <mxCell id="e_user_comment" edge="1" parent="1" source="User" target="Comment" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;endFill=1;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- News -> Comment (1:N) -->
+        <mxCell id="e_news_comment" edge="1" parent="1" source="News" target="Comment" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;endFill=1;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- User -> Order (1:N) -->
+        <mxCell id="e_user_order" edge="1" parent="1" source="User" target="Order" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;endFill=1;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Order -> OrderItem (1:N) -->
+        <mxCell id="e_order_orderitem" edge="1" parent="1" source="Order" target="OrderItem" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;endFill=1;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Product -> OrderItem (1:N) -->
+        <mxCell id="e_product_orderitem" edge="1" parent="1" source="Product" target="OrderItem" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;endFill=1;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Category -> Product (1:N) -->
+        <mxCell id="e_category_product" edge="1" parent="1" source="Category" target="Product" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=classic;endFill=1;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

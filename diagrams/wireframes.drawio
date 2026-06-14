@@ -1,0 +1,238 @@
+<mxfile host="Electron">
+  <diagram name="Wireframes" id="0">
+    <mxGraphModel dx="971" dy="850" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="2000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="wf1_bg" parent="1" style="rect;fillColor=#111111;strokeColor=#00ff00;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="400" width="300" x="50" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="wf1_title" parent="1" style="text;fontColor=#ffffff;fontStyle=1;fontSize=14;" value="1. Home Page" vertex="1">
+          <mxGeometry height="30" width="150" x="50" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="wf1_nav" parent="1" style="rect;fillColor=#002200;strokeColor=#00ff00;fontColor=#00ff00;" value="RetroDev Club  |  Каталог  |  Новости  |  Вход" vertex="1">
+          <mxGeometry height="30" width="300" x="50" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="wf1_jumbo" parent="1" style="rect;fillColor=#001100;strokeColor=#00ff00;strokeWidth=1;fontColor=#00ff00;dashed=1;" value="Добро пожаловать в RetroDev&#xa;Лучший ретро-стафф" vertex="1">
+          <mxGeometry height="80" width="260" x="70" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="wf1_col1" parent="1" style="rect;fillColor=none;strokeColor=#00ff00;fontColor=#00ff00;dashed=1;" value="О нас" vertex="1">
+          <mxGeometry height="60" width="80" x="70" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="wf1_col2" parent="1" style="rect;fillColor=none;strokeColor=#00ff00;fontColor=#00ff00;dashed=1;" value="Форум" vertex="1">
+          <mxGeometry height="60" width="80" x="160" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="wf1_col3" parent="1" style="rect;fillColor=none;strokeColor=#00ff00;fontColor=#00ff00;dashed=1;" value="Товары" vertex="1">
+          <mxGeometry height="60" width="80" x="250" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="wf1_news_title" parent="1" style="text;fontColor=#00ff00;" value="Последние новости:" vertex="1">
+          <mxGeometry height="20" width="150" x="70" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="wf1_n1" parent="1" style="rect;fillColor=none;strokeColor=#00ff00;fontColor=#00ff00;align=left;spacingLeft=5;" value="Новость 1" vertex="1">
+          <mxGeometry height="30" width="260" x="70" y="295" as="geometry" />
+        </mxCell>
+        <mxCell id="wf1_n2" parent="1" style="rect;fillColor=none;strokeColor=#00ff00;fontColor=#00ff00;align=left;spacingLeft=5;" value="Новость 2" vertex="1">
+          <mxGeometry height="30" width="260" x="70" y="335" as="geometry" />
+        </mxCell>
+        <mxCell id="wf1_footer" parent="1" style="rect;fillColor=none;strokeColor=#00ff00;fontColor=#00ff00;align=center;strokeWidth=1;shape=line;" value="© 2026 RetroDev" vertex="1">
+          <mxGeometry height="10" width="300" x="50" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="wf2_bg" parent="1" style="rect;fillColor=#111111;strokeColor=#00ff00;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="400" width="300" x="400" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="wf2_nav" parent="1" style="rect;fillColor=#002200;strokeColor=#00ff00;fontColor=#00ff00;" value="Navbar..." vertex="1">
+          <mxGeometry height="30" width="300" x="400" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="wf2_h1" parent="1" style="text;fontColor=#00ff00;fontSize=16;fontStyle=1;" value="Все новости" vertex="1">
+          <mxGeometry height="30" width="150" x="420" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="wf2_item1" parent="1" style="rect;fillColor=#001100;strokeColor=#00ff00;dashed=1;" value="" vertex="1">
+          <mxGeometry height="80" width="260" x="420" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="wf2_img1" parent="1" style="rect;fillColor=none;strokeColor=#00ff00;fontColor=#00ff00;" value="IMG" vertex="1">
+          <mxGeometry height="60" width="60" x="430" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="wf2_txt1" parent="1" style="text;fontColor=#00ff00;align=left;verticalAlign=top;" value="Заголовок новости&#xa;Краткое описание..." vertex="1">
+          <mxGeometry height="40" width="150" x="500" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="wf2_btn1" parent="1" style="rect;fillColor=#004400;strokeColor=#00ff00;fontColor=#00ff00;" value="Читать &gt;" vertex="1">
+          <mxGeometry height="20" width="70" x="500" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="wf2_item2" parent="1" style="rect;fillColor=#001100;strokeColor=#00ff00;dashed=1;" value="" vertex="1">
+          <mxGeometry height="80" width="260" x="420" y="225" as="geometry" />
+        </mxCell>
+        <mxCell id="wf2_img2" parent="1" style="rect;fillColor=none;strokeColor=#00ff00;fontColor=#00ff00;" value="IMG" vertex="1">
+          <mxGeometry height="60" width="60" x="430" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="wf2_txt2" parent="1" style="text;fontColor=#00ff00;align=left;verticalAlign=top;" value="Заголовок новости 2&#xa;Краткое описание..." vertex="1">
+          <mxGeometry height="40" width="150" x="500" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="wf2_btn2" parent="1" style="rect;fillColor=#004400;strokeColor=#00ff00;fontColor=#00ff00;" value="Читать &gt;" vertex="1">
+          <mxGeometry height="20" width="70" x="500" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="wf3_bg" parent="1" style="rect;fillColor=#111111;strokeColor=#00ff00;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="400" width="300" x="750" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="wf3_nav" parent="1" style="rect;fillColor=#002200;strokeColor=#00ff00;fontColor=#00ff00;" value="Navbar..." vertex="1">
+          <mxGeometry height="30" width="300" x="750" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="wf3_h1" parent="1" style="text;fontColor=#00ff00;fontSize=16;fontStyle=1;" value="Название новости" vertex="1">
+          <mxGeometry height="30" width="200" x="770" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="wf3_img" parent="1" style="rect;fillColor=none;strokeColor=#00ff00;fontColor=#00ff00;dashed=1;" value="Большое изображение" vertex="1">
+          <mxGeometry height="80" width="260" x="770" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="wf3_text" parent="1" style="text;fontColor=#00ff00;align=left;verticalAlign=top;" value="Полный текст новости.&#xa;Много строк текста..." vertex="1">
+          <mxGeometry height="50" width="260" x="770" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="wf3_com_h" parent="1" style="text;fontColor=#00ff00;fontStyle=1;" value="Комментарии:" vertex="1">
+          <mxGeometry height="20" width="150" x="770" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="wf3_com1" parent="1" style="rect;fillColor=none;strokeColor=#00ff00;fontColor=#00ff00;align=left;spacingLeft=5;dashed=1;" value="User: круто!" vertex="1">
+          <mxGeometry height="20" width="260" x="770" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="wf3_comform" parent="1" style="rect;fillColor=#000000;strokeColor=#00ff00;fontColor=#00ff00;align=left;spacingLeft=5;" value="Текст комментария..." vertex="1">
+          <mxGeometry height="40" width="260" x="770" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="wf3_combtn" parent="1" style="rect;fillColor=#004400;strokeColor=#00ff00;fontColor=#00ff00;" value="Отправить" vertex="1">
+          <mxGeometry height="25" width="80" x="770" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="wf4_bg" parent="1" style="rect;fillColor=#111111;strokeColor=#00ff00;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="400" width="300" x="1100" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="wf4_nav" parent="1" style="rect;fillColor=#002200;strokeColor=#00ff00;fontColor=#00ff00;" value="Navbar..." vertex="1">
+          <mxGeometry height="30" width="300" x="1100" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="wf4_h1" parent="1" style="text;fontColor=#00ff00;fontSize=16;fontStyle=1;" value="Каталог" vertex="1">
+          <mxGeometry height="30" width="150" x="1120" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="wf4_c1" parent="1" style="rect;fillColor=#001100;strokeColor=#00ff00;fontColor=#00ff00;" value="Категория 1&#xa;(5 товаров)" vertex="1">
+          <mxGeometry height="80" width="120" x="1120" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="wf4_c2" parent="1" style="rect;fillColor=#001100;strokeColor=#00ff00;fontColor=#00ff00;" value="Категория 2&#xa;(3 товара)" vertex="1">
+          <mxGeometry height="80" width="120" x="1260" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="wf4_c3" parent="1" style="rect;fillColor=#001100;strokeColor=#00ff00;fontColor=#00ff00;" value="Категория 3&#xa;(8 товаров)" vertex="1">
+          <mxGeometry height="80" width="120" x="1120" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="wf5_bg" parent="1" style="rect;fillColor=#111111;strokeColor=#00ff00;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="400" width="300" x="50" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="wf5_nav" parent="1" style="rect;fillColor=#002200;strokeColor=#00ff00;fontColor=#00ff00;" value="Navbar..." vertex="1">
+          <mxGeometry height="30" width="300" x="50" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="wf5_h1" parent="1" style="text;fontColor=#00ff00;fontSize=16;fontStyle=1;" value="Название категории" vertex="1">
+          <mxGeometry height="30" width="200" x="70" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="wf5_tab_h" parent="1" style="rect;fillColor=#002200;strokeColor=#00ff00;fontColor=#00ff00;align=left;spacingLeft=5;" value="Фото | Название   | Цена  | Действие" vertex="1">
+          <mxGeometry height="20" width="260" x="70" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="wf5_r1" parent="1" style="rect;fillColor=none;strokeColor=#00ff00;fontColor=#00ff00;align=left;spacingLeft=5;" value="[img] | Товар 1    | 500   |" vertex="1">
+          <mxGeometry height="40" width="260" x="70" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="wf5_btn1" parent="1" style="rect;fillColor=#004400;strokeColor=#00ff00;fontColor=#00ff00;" value="В корзину" vertex="1">
+          <mxGeometry height="20" width="70" x="250" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="wf5_r2" parent="1" style="rect;fillColor=none;strokeColor=#00ff00;fontColor=#00ff00;align=left;spacingLeft=5;" value="[img] | Товар 2    | 1200  |" vertex="1">
+          <mxGeometry height="40" width="260" x="70" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="wf5_btn2" parent="1" style="rect;fillColor=#004400;strokeColor=#00ff00;fontColor=#00ff00;" value="В корзину" vertex="1">
+          <mxGeometry height="20" width="70" x="250" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="wf6_bg" parent="1" style="rect;fillColor=#111111;strokeColor=#00ff00;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="400" width="300" x="400" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="wf6_nav" parent="1" style="rect;fillColor=#002200;strokeColor=#00ff00;fontColor=#00ff00;" value="Navbar..." vertex="1">
+          <mxGeometry height="30" width="300" x="400" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="wf6_img" parent="1" style="rect;fillColor=none;strokeColor=#00ff00;fontColor=#00ff00;dashed=1;" value="Большое&#xa;фото товара" vertex="1">
+          <mxGeometry height="120" width="120" x="420" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="wf6_name" parent="1" style="text;fontColor=#00ff00;fontSize=16;fontStyle=1;" value="Товар 1" vertex="1">
+          <mxGeometry height="30" width="130" x="550" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="wf6_price" parent="1" style="text;fontColor=#00ff00;" value="Цена: 500 руб." vertex="1">
+          <mxGeometry height="20" width="130" x="550" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="wf6_btn" parent="1" style="rect;fillColor=#004400;strokeColor=#00ff00;fontColor=#00ff00;" value="В КОРЗИНУ" vertex="1">
+          <mxGeometry height="30" width="100" x="550" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="wf6_desc_h" parent="1" style="text;fontColor=#00ff00;fontStyle=1;" value="Описание:" vertex="1">
+          <mxGeometry height="20" width="150" x="420" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="wf6_desc" parent="1" style="text;fontColor=#00ff00;align=left;verticalAlign=top;" value="Длинный текст описания&#xa;товара..." vertex="1">
+          <mxGeometry height="50" width="260" x="420" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="wf7_bg" parent="1" style="rect;fillColor=#111111;strokeColor=#00ff00;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="400" width="300" x="750" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="wf7_nav" parent="1" style="rect;fillColor=#002200;strokeColor=#00ff00;fontColor=#00ff00;" value="Navbar..." vertex="1">
+          <mxGeometry height="30" width="300" x="750" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="wf7_h1" parent="1" style="text;fontColor=#00ff00;fontSize=16;fontStyle=1;" value="Корзина" vertex="1">
+          <mxGeometry height="30" width="150" x="770" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="wf7_tab_h" parent="1" style="rect;fillColor=#002200;strokeColor=#00ff00;fontColor=#00ff00;align=left;spacingLeft=5;" value="Товар | Кол-во | Сумма | Удалить" vertex="1">
+          <mxGeometry height="20" width="260" x="770" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="wf7_r1" parent="1" style="rect;fillColor=none;strokeColor=#00ff00;fontColor=#00ff00;align=left;spacingLeft=5;" value="Товар 1 | - 2 +  | 1000  |   [X]" vertex="1">
+          <mxGeometry height="30" width="260" x="770" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="wf7_r2" parent="1" style="rect;fillColor=none;strokeColor=#00ff00;fontColor=#00ff00;align=left;spacingLeft=5;" value="Товар 2 | - 1 +  | 1200  |   [X]" vertex="1">
+          <mxGeometry height="30" width="260" x="770" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="wf7_r3" parent="1" style="rect;fillColor=#001100;strokeColor=#00ff00;fontColor=#00ff00;fontStyle=1;align=left;spacingLeft=5;" value="ИТОГО:           | 2200" vertex="1">
+          <mxGeometry height="30" width="260" x="770" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="wf7_btn" parent="1" style="rect;fillColor=#004400;strokeColor=#00ff00;fontColor=#00ff00;fontStyle=1;" value="ОФОРМИТЬ ЗАКАЗ" vertex="1">
+          <mxGeometry height="30" width="150" x="880" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="wf8_bg" parent="1" style="rect;fillColor=#111111;strokeColor=#00ff00;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="400" width="300" x="1100" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="wf8_nav" parent="1" style="rect;fillColor=#002200;strokeColor=#00ff00;fontColor=#00ff00;" value="Navbar..." vertex="1">
+          <mxGeometry height="30" width="300" x="1100" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="wf8_h1" parent="1" style="text;fontColor=#00ff00;fontSize=16;fontStyle=1;" value="Список заказов" vertex="1">
+          <mxGeometry height="30" width="150" x="1120" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="wf8_tab_h" parent="1" style="rect;fillColor=#002200;strokeColor=#00ff00;fontColor=#00ff00;align=left;spacingLeft=5;" value="ID | Статус  | Дата    | Действия" vertex="1">
+          <mxGeometry height="20" width="260" x="1120" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="wf8_r1" parent="1" style="rect;fillColor=none;strokeColor=#00ff00;fontColor=#00ff00;align=left;spacingLeft=5;" value="#5 | [Pending] | 10.10   | [Cancel]" vertex="1">
+          <mxGeometry height="30" width="260" x="1120" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="wf8_r2" parent="1" style="rect;fillColor=none;strokeColor=#00ff00;fontColor=#00ff00;align=left;spacingLeft=5;" value="#4 | [Complete]| 05.10   | " vertex="1">
+          <mxGeometry height="30" width="260" x="1120" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="wf9_bg" parent="1" style="rect;fillColor=#111111;strokeColor=#00ff00;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="400" width="300" x="50" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="wf9_nav" parent="1" style="rect;fillColor=#002200;strokeColor=#00ff00;fontColor=#00ff00;" value="Navbar..." vertex="1">
+          <mxGeometry height="30" width="300" x="50" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="wf9_h1" parent="1" style="text;fontColor=#00ff00;fontSize=16;fontStyle=1;align=center;" value="Вход в систему" vertex="1">
+          <mxGeometry height="30" width="300" x="50" y="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="wf9_form_bg" parent="1" style="rect;fillColor=#001100;strokeColor=#00ff00;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="180" width="260" x="70" y="1040" as="geometry" />
+        </mxCell>
+        <mxCell id="wf9_l1" parent="1" style="text;fontColor=#00ff00;" value="Username:" vertex="1">
+          <mxGeometry height="20" width="100" x="80" y="1050" as="geometry" />
+        </mxCell>
+        <mxCell id="wf9_i1" parent="1" style="rect;fillColor=#000000;strokeColor=#00ff00;" value="" vertex="1">
+          <mxGeometry height="30" width="240" x="80" y="1070" as="geometry" />
+        </mxCell>
+        <mxCell id="wf9_l2" parent="1" style="text;fontColor=#00ff00;" value="Password:" vertex="1">
+          <mxGeometry height="20" width="100" x="80" y="1110" as="geometry" />
+        </mxCell>
+        <mxCell id="wf9_i2" parent="1" style="rect;fillColor=#000000;strokeColor=#00ff00;fontColor=#00ff00;" value="***" vertex="1">
+          <mxGeometry height="30" width="240" x="80" y="1130" as="geometry" />
+        </mxCell>
+        <mxCell id="wf9_btn" parent="1" style="rect;fillColor=#004400;strokeColor=#00ff00;fontColor=#00ff00;fontStyle=1;" value="ВОЙТИ" vertex="1">
+          <mxGeometry height="30" width="240" x="80" y="1175" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

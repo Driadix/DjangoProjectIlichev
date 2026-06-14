@@ -1,0 +1,134 @@
+<mxfile>
+  <diagram name="Flowchart 3.1">
+    <mxGraphModel dx="1000" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Начало -->
+        <mxCell id="start" value="Начало" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="40" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Ввод -->
+        <mxCell id="input_cart" value="Запрос добавления&amp;nbsp;&lt;br&gt;товара в корзину" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="120" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Условие авторизации -->
+        <mxCell id="check_auth" value="Пользователь&amp;nbsp;&lt;br&gt;авторизован?" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="210" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Редирект (Нет) -->
+        <mxCell id="redirect_login" value="Перенаправление&amp;nbsp;&lt;br&gt;на страницу входа" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="530" y="220" width="160" height="60" as="geometry" />
+        </mxCell>
+        <!-- Конец 1 -->
+        <mxCell id="end1" value="Конец" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="530" y="310" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Получить корзину (Да) -->
+        <mxCell id="get_cart" value="Поиск или создание&amp;nbsp;&lt;br&gt;заказа (статус 'cart')" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="330" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Проверка наличия товара -->
+        <mxCell id="check_item" value="Товар уже есть&amp;nbsp;&lt;br&gt;в корзине?" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="430" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Увеличить кол-во (Да) -->
+        <mxCell id="inc_qty" value="Увеличить&amp;nbsp;&lt;br&gt;количество (quantity+1)" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="530" y="440" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Создать позицию (Нет) -->
+        <mxCell id="add_item" value="Добавление товара&amp;nbsp;&lt;br&gt;в OrderItem" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="550" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Запрос на оформление -->
+        <mxCell id="req_checkout" value="Запрос на&amp;nbsp;&lt;br&gt;оформление заказа" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="650" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Проверка пустая ли -->
+        <mxCell id="check_empty" value="Корзина&amp;nbsp;&lt;br&gt;пуста?" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="750" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="err_empty" value="Вывод сообщения&amp;nbsp;&lt;br&gt;о пустой корзине" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="530" y="760" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Смена статуса -->
+        <mxCell id="change_status" value="Изменение статуса&amp;nbsp;&lt;br&gt;заказа на 'pending'" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="870" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Редирект на мои заказы -->
+        <mxCell id="redirect_orders" value="Перенаправление&amp;nbsp;&lt;br&gt;на 'Мои заказы'" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="970" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Конец -->
+        <mxCell id="end_main" value="Конец" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="1070" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- EDGES -->
+        <!-- start -> input_cart -->
+        <mxCell id="e1" edge="1" parent="1" source="start" target="input_cart" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- input_cart -> check_auth -->
+        <mxCell id="e2" edge="1" parent="1" source="input_cart" target="check_auth" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- check_auth -> redirect_login (Нет) -->
+        <mxCell id="e3" value="Нет" edge="1" parent="1" source="check_auth" target="redirect_login" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- redirect_login -> end1 -->
+        <mxCell id="e4" edge="1" parent="1" source="redirect_login" target="end1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <!-- check_auth -> get_cart (Да) -->
+        <mxCell id="e5" value="Да" edge="1" parent="1" source="check_auth" target="get_cart" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <!-- get_cart -> check_item -->
+        <mxCell id="e6" edge="1" parent="1" source="get_cart" target="check_item" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <!-- check_item -> inc_qty (Да) -->
+        <mxCell id="e7" value="Да" edge="1" parent="1" source="check_item" target="inc_qty" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- check_item -> add_item (Нет) -->
+        <mxCell id="e8" value="Нет" edge="1" parent="1" source="check_item" target="add_item" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <!-- add_item -> req_checkout -->
+        <mxCell id="e9" edge="1" parent="1" source="add_item" target="req_checkout" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- inc_qty -> req_checkout -->
+        <mxCell id="e10" edge="1" parent="1" source="inc_qty" target="req_checkout" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=1;entryY=0.5;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry">
+          <Array as="points">
+            <mxPoint x="610" y="680" />
+          </Array>
+        </mxGeometry></mxCell>
+
+        <!-- req_checkout -> check_empty -->
+        <mxCell id="e11" edge="1" parent="1" source="req_checkout" target="check_empty" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <!-- check_empty -> err_empty (Да) -->
+        <mxCell id="e12" value="Да" edge="1" parent="1" source="check_empty" target="err_empty" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- check_empty -> change_status (Нет) -->
+        <mxCell id="e13" value="Нет" edge="1" parent="1" source="check_empty" target="change_status" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- err_empty -> end_main -->
+        <mxCell id="e14" edge="1" parent="1" source="err_empty" target="end_main" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=1;entryY=0.5;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry">
+          <Array as="points">
+            <mxPoint x="610" y="1095" />
+          </Array>
+        </mxGeometry></mxCell>
+
+        <!-- change_status -> redirect_orders -->
+        <mxCell id="e15" edge="1" parent="1" source="change_status" target="redirect_orders" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- redirect_orders -> end_main -->
+        <mxCell id="e16" edge="1" parent="1" source="redirect_orders" target="end_main" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

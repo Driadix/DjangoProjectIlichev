@@ -1,0 +1,135 @@
+<mxfile>
+  <diagram name="Flowchart 3.5">
+    <mxGraphModel dx="1200" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Начало -->
+        <mxCell id="start" value="Начало" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="400" y="40" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Ввод -->
+        <mxCell id="input_req" value="Запрос страницы&amp;nbsp;&lt;br&gt;новости по ID" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="400" y="130" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Поиск новости -->
+        <mxCell id="get_news" value="Поиск новости&amp;nbsp;&lt;br&gt;в БД по ID" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="400" y="230" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Условие (найдена ли) -->
+        <mxCell id="check_found" value="Новость&amp;nbsp;&lt;br&gt;найдена?" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="400" y="330" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Ветвь Нет (Ошибка 404) -->
+        <mxCell id="err_404" value="Вывод ошибки 404&amp;nbsp;&lt;br&gt;(Новость не найдена)" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="640" y="340" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="end_404" value="Конец" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="640" y="440" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Ветвь Да (Выборка комментариев) -->
+        <mxCell id="get_comms" value="Выборка комментариев&amp;nbsp;&lt;br&gt;из БД к новости" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="400" y="450" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Метод POST? -->
+        <mxCell id="check_post" value="Метод запроса&amp;nbsp;&lt;br&gt;== POST?" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="400" y="550" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- GET: Пустая форма -->
+        <mxCell id="empty_form" value="Создание пустой&amp;nbsp;&lt;br&gt;формы комментария" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="640" y="560" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- POST: Данные формы -->
+        <mxCell id="input_data" value="Получение данных&amp;nbsp;&lt;br&gt;из формы" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="400" y="670" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Валидация -->
+        <mxCell id="check_valid" value="Данные формы&amp;nbsp;&lt;br&gt;валидны?" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="400" y="770" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Невалидно -> к рендеру (идем вправо и вниз к контексту) -->
+
+        <!-- Валидно: Сохранение -->
+        <mxCell id="save_comm" value="Привязка author и post,&amp;nbsp;&lt;br&gt;сохранение в БД" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="400" y="890" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Валидно: Редирект -->
+        <mxCell id="redirect_self" value="Перенаправление на&amp;nbsp;&lt;br&gt;эту же страницу" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="400" y="990" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="end_redirect" value="Конец" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="400" y="1090" width="160" height="50" as="geometry" />
+        </mxCell>
+
+
+        <!-- Ветвь рендера: Формирование контекста -->
+        <mxCell id="make_ctx" value="Формирование контекста&amp;nbsp;&lt;br&gt;(новость, комменты, форма)" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="640" y="780" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Рендер шаблона -->
+        <mxCell id="render_tmpl" value="Генерация и вывод&amp;nbsp;&lt;br&gt;HTML-страницы" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="640" y="890" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Конец (Рендер) -->
+        <mxCell id="end_render" value="Конец" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="640" y="990" width="160" height="50" as="geometry" />
+        </mxCell>
+
+
+        <!-- СВЯЗИ -->
+        <mxCell id="e1" edge="1" parent="1" source="start" target="input_req" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="input_req" target="get_news" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="get_news" target="check_found" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <!-- Found -> No -->
+        <mxCell id="e4" value="Нет" edge="1" parent="1" source="check_found" target="err_404" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="err_404" target="end_404" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Found -> Yes -->
+        <mxCell id="e6" value="Да" edge="1" parent="1" source="check_found" target="get_comms" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="get_comms" target="check_post" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- POST -> No (GET) -->
+        <mxCell id="e8" value="Нет" edge="1" parent="1" source="check_post" target="empty_form" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Empty form -> Context -->
+        <mxCell id="e9" edge="1" parent="1" source="empty_form" target="make_ctx" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;entryX=0.5;entryY=0;"><mxGeometry relative="1" as="geometry">
+          <Array as="points">
+            <mxPoint x="720" y="700" />
+          </Array>
+        </mxGeometry></mxCell>
+
+        <!-- POST -> Yes -->
+        <mxCell id="e10" value="Да" edge="1" parent="1" source="check_post" target="input_data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="input_data" target="check_valid" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Valid -> No -->
+        <mxCell id="e12" value="Нет" edge="1" parent="1" source="check_valid" target="make_ctx" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <!-- Context -> Render -> End -->
+        <mxCell id="e13" edge="1" parent="1" source="make_ctx" target="render_tmpl" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="render_tmpl" target="end_render" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Valid -> Yes -->
+        <mxCell id="e15" value="Да" edge="1" parent="1" source="check_valid" target="save_comm" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="save_comm" target="redirect_self" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e17" edge="1" parent="1" source="redirect_self" target="end_redirect" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

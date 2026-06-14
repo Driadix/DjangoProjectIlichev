@@ -1,0 +1,126 @@
+<mxfile>
+  <diagram name="Flowchart 3.2">
+    <mxGraphModel dx="1200" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Начало -->
+        <mxCell id="start" value="Начало" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="500" y="40" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Ввод -->
+        <mxCell id="input_req" value="Запрос на изменение&amp;nbsp;&lt;br&gt;статуса заказа" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="500" y="130" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Проверка роли -->
+        <mxCell id="check_role" value="Роль пользователя" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="500" y="230" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- ВЕТВЬ: Гость -->
+        <mxCell id="err_guest" value="Перенаправление&amp;nbsp;&lt;br&gt;на страницу входа" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="840" y="240" width="160" height="60" as="geometry" />
+        </mxCell>
+        <!-- Конец Гостя -->
+        <mxCell id="end_guest" value="Конец" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="840" y="700" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ВЕТВЬ: Клиент -->
+        <mxCell id="client_check" value="Статус заказа&amp;nbsp;&lt;br&gt;== 'pending'?" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="300" y="340" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="client_err" value="Сообщение об ошибке&amp;nbsp;&lt;br&gt;(невозможно отменить)" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="350" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="client_ok" value="Изменение статуса&amp;nbsp;&lt;br&gt;на 'canceled'" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="300" y="470" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- ВЕТВЬ: Менеджер -->
+        <mxCell id="manager_check" value="Новый статус&amp;nbsp;&lt;br&gt;допустим?" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="700" y="340" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="manager_err" value="Сообщение об ошибке&amp;nbsp;&lt;br&gt;(неверный статус)" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="900" y="350" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="manager_ok" value="Изменение статуса&amp;nbsp;&lt;br&gt;на запрошенный" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="700" y="470" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- СЛИЯНИЕ -> Редирект на список -->
+        <mxCell id="redirect_list" value="Перенаправление на&amp;nbsp;&lt;br&gt;список заказов" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="500" y="580" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Конец Основной -->
+        <mxCell id="end_main" value="Конец" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="500" y="700" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- СВЯЗИ -->
+        <!-- Start -> Input -->
+        <mxCell id="e1" edge="1" parent="1" source="start" target="input_req" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Input -> Check Role -->
+        <mxCell id="e2" edge="1" parent="1" source="input_req" target="check_role" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <!-- Role -> Guest -->
+        <mxCell id="e3" value="Гость" edge="1" parent="1" source="check_role" target="err_guest" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Guest -> End -->
+        <mxCell id="e4" edge="1" parent="1" source="err_guest" target="end_guest" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Role -> Client -->
+        <mxCell id="e5" value="Клиент" edge="1" parent="1" source="check_role" target="client_check" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;exitX=0;exitY=0.5;entryX=0.5;entryY=0;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <!-- Client Check -> Err (No) -->
+        <mxCell id="e6" value="Нет" edge="1" parent="1" source="client_check" target="client_err" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Client Check -> Ok (Yes) -->
+        <mxCell id="e7" value="Да" edge="1" parent="1" source="client_check" target="client_ok" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Role -> Manager -->
+        <mxCell id="e8" value="Менеджер" edge="1" parent="1" source="check_role" target="manager_check" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;exitX=1;exitY=0.5;entryX=0.5;entryY=0;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <!-- Manager Check -> Err (No) -->
+        <mxCell id="e9" value="Нет" edge="1" parent="1" source="manager_check" target="manager_err" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Manager Check -> Ok (Yes) -->
+        <mxCell id="e10" value="Да" edge="1" parent="1" source="manager_check" target="manager_ok" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Merge Client/Manager paths to redirect_list -->
+        <!-- client_err -> redirect_list -->
+        <mxCell id="e11" edge="1" parent="1" source="client_err" target="redirect_list" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;entryX=0;entryY=0.5;"><mxGeometry relative="1" as="geometry">
+          <Array as="points">
+            <mxPoint x="180" y="610" />
+          </Array>
+        </mxGeometry></mxCell>
+        <!-- client_ok -> redirect_list -->
+        <mxCell id="e12" edge="1" parent="1" source="client_ok" target="redirect_list" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;entryX=0.5;entryY=0;"><mxGeometry relative="1" as="geometry">
+          <Array as="points">
+            <mxPoint x="380" y="550" />
+            <mxPoint x="580" y="550" />
+          </Array>
+        </mxGeometry></mxCell>
+        
+        <!-- manager_err -> redirect_list -->
+        <mxCell id="e13" edge="1" parent="1" source="manager_err" target="redirect_list" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;entryX=1;entryY=0.5;"><mxGeometry relative="1" as="geometry">
+          <Array as="points">
+            <mxPoint x="980" y="610" />
+          </Array>
+        </mxGeometry></mxCell>
+        <!-- manager_ok -> redirect_list -->
+        <mxCell id="e14" edge="1" parent="1" source="manager_ok" target="redirect_list" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;entryX=0.5;entryY=0;"><mxGeometry relative="1" as="geometry">
+          <Array as="points">
+            <mxPoint x="780" y="550" />
+            <mxPoint x="580" y="550" />
+          </Array>
+        </mxGeometry></mxCell>
+
+        <!-- redirect_list -> end_main -->
+        <mxCell id="e15" edge="1" parent="1" source="redirect_list" target="end_main" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

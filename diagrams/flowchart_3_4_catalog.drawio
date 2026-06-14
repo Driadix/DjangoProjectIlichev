@@ -1,0 +1,74 @@
+<mxfile>
+  <diagram name="Flowchart 3.4">
+    <mxGraphModel dx="1000" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Начало -->
+        <mxCell id="start" value="Начало" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="40" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Ввод -->
+        <mxCell id="input_req" value="Запрос страницы&amp;nbsp;&lt;br&gt;категории (slug)" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="130" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Поиск категории -->
+        <mxCell id="get_cat" value="Поиск категории в БД&amp;nbsp;&lt;br&gt;по параметру slug" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="230" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Условие (найдена ли) -->
+        <mxCell id="check_found" value="Категория&amp;nbsp;&lt;br&gt;найдена?" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="330" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Ветвь Нет (Ошибка 404) -->
+        <mxCell id="err_404" value="Вывод ошибки 404&amp;nbsp;&lt;br&gt;(Страница не найдена)" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="560" y="340" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="end_404" value="Конец" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="560" y="440" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Ветвь Да (Выборка товаров) -->
+        <mxCell id="get_prods" value="Выборка товаров из БД&amp;nbsp;&lt;br&gt;по категории" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="450" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Формирование контекста -->
+        <mxCell id="make_ctx" value="Формирование&amp;nbsp;&lt;br&gt;контекста данных" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="550" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Рендер шаблона -->
+        <mxCell id="render_tmpl" value="Генерация и вывод&amp;nbsp;&lt;br&gt;HTML-страницы" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="650" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Конец (Успех) -->
+        <mxCell id="end_ok" value="Конец" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="750" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- СВЯЗИ -->
+        <mxCell id="e1" edge="1" parent="1" source="start" target="input_req" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="input_req" target="get_cat" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="get_cat" target="check_found" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <!-- Found -> No -->
+        <mxCell id="e4" value="Нет" edge="1" parent="1" source="check_found" target="err_404" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="err_404" target="end_404" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <!-- Found -> Yes -->
+        <mxCell id="e6" value="Да" edge="1" parent="1" source="check_found" target="get_prods" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="get_prods" target="make_ctx" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="make_ctx" target="render_tmpl" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="render_tmpl" target="end_ok" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

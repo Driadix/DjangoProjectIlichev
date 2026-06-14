@@ -1,0 +1,104 @@
+<mxfile>
+  <diagram name="Flowchart 3.3">
+    <mxGraphModel dx="1000" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Начало -->
+        <mxCell id="start" value="Начало" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="40" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Запрос страницы -->
+        <mxCell id="input_req" value="Запрос страницы&amp;nbsp;&lt;br&gt;регистрации" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="130" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- POST проверка -->
+        <mxCell id="check_post" value="Метод запроса&amp;nbsp;&lt;br&gt;== POST?" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="230" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Пустая форма (GET) -->
+        <mxCell id="empty_form" value="Создание пустой&amp;nbsp;&lt;br&gt;формы регистрации" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="560" y="240" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Данные из формы (POST) -->
+        <mxCell id="input_data" value="Получение данных&amp;nbsp;&lt;br&gt;из формы" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="350" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Валидация -->
+        <mxCell id="check_valid" value="Данные формы&amp;nbsp;&lt;br&gt;валидны?" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="450" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Сохранение юзера -->
+        <mxCell id="save_user" value="Сохранение нового&amp;nbsp;&lt;br&gt;пользователя в БД" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="570" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Группа -->
+        <mxCell id="get_group" value="Поиск группы&amp;nbsp;&lt;br&gt;'Client'" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="670" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Добавление в группу -->
+        <mxCell id="add_group" value="Добавление в группу&amp;nbsp;&lt;br&gt;пользователя" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="770" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Редирект -->
+        <mxCell id="redirect_home" value="Перенаправление на&amp;nbsp;&lt;br&gt;главную страницу" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="870" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Конец (Успех) -->
+        <mxCell id="end_ok" value="Конец" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="970" width="160" height="50" as="geometry" />
+        </mxCell>
+
+
+        <!-- Отрисовка шаблона (Ошибки / GET) -->
+        <mxCell id="render_form" value="Вывод шаблона формы&amp;nbsp;&lt;br&gt;(с ошибками или пустой)" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="560" y="460" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Конец (Форма) -->
+        <mxCell id="end_form" value="Конец" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="560" y="575" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- СВЯЗИ -->
+        <mxCell id="e1" edge="1" parent="1" source="start" target="input_req" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="input_req" target="check_post" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <!-- POST ? -> No -> Empty form -->
+        <mxCell id="e3" value="Нет" edge="1" parent="1" source="check_post" target="empty_form" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Empty form -> Render -->
+        <mxCell id="e4" edge="1" parent="1" source="empty_form" target="render_form" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- POST ? -> Yes -> Input data -->
+        <mxCell id="e5" value="Да" edge="1" parent="1" source="check_post" target="input_data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="input_data" target="check_valid" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Valid ? -> No -> Render -->
+        <mxCell id="e7" value="Нет" edge="1" parent="1" source="check_valid" target="render_form" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Render -> End form -->
+        <mxCell id="e8" edge="1" parent="1" source="render_form" target="end_form" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Valid ? -> Yes -> Save -->
+        <mxCell id="e9" value="Да" edge="1" parent="1" source="check_valid" target="save_user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <!-- Sequence steps -->
+        <mxCell id="e10" edge="1" parent="1" source="save_user" target="get_group" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="get_group" target="add_group" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="add_group" target="redirect_home" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="redirect_home" target="end_ok" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.5;"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
